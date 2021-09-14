@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import Header from './components/header';
 import NewsList from './components/news-list';
 import Footer from './components/footer';
+import Life from './components/lifecycle';
 
 import JSON from './db.json';
 
@@ -14,6 +15,7 @@ class App extends Component {
 		news: JSON,
 		filtered: JSON,
 		footerText: 'I am a happy footer',
+		active: true,
 	}
 
 	getKeywords = (event) => {
@@ -31,6 +33,7 @@ class App extends Component {
 		const {
 			filtered,
 			footerText,
+			active,
 		} = this.state;
 
 		return (
@@ -39,12 +42,22 @@ class App extends Component {
 					keywords={this.getKeywords}
 				/>
 
-				<NewsList
+				{/* <NewsList
 					news={filtered}
 				>
 					<br />
 					<h1>I am a children</h1>
-				</NewsList>
+				</NewsList> */}
+
+				{active ? <Life /> : null}
+
+				<button onClick={() => {
+					this.setState({
+						active: !active,
+					});
+				}}>
+					Action
+				</button>
 
 				<Footer
 					footerText={footerText}
