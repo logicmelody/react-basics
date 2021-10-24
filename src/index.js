@@ -42,12 +42,12 @@ class App extends Component {
 					keywords={this.getKeywords}
 				/>
 
-				{/* <NewsList
+				<NewsList
 					news={filtered}
 				>
 					<br />
 					<h1>I am a children</h1>
-				</NewsList> */}
+				</NewsList>
 
 				{active ? <Life /> : null}
 
